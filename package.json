@@ -1,6 +1,6 @@
 {
   "name": "taringajs",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Taringa + NodeJS",
   "main": "index.js",
   "scripts": {
