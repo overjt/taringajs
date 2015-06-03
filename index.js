@@ -70,7 +70,7 @@ Taringa.prototype.store_user_data = function() {
         if (!error && response.statusCode == 200) {
             var pattern = /var global_data = { user: \'(.*)\', user_key: \'(.*)\', postid/;
             var match = pattern.exec(body);
-            if (match !== null && match.length == 3 && match[1] != '' && match[1] != '') {
+            if (match !== null && match.length == 3 && match[1] != '' && match[2] != '') {
                 self.user_id = match[1];
                 self.user_key = match[2];
                 self.emit("logged");
