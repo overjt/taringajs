@@ -1,7 +1,16 @@
+[![npm version](https://badge.fury.io/js/taringajs.svg)](http://badge.fury.io/js/taringajs) [![GitHub version](https://badge.fury.io/gh/overjt%2Ftaringajs.svg)](http://badge.fury.io/gh/overjt%2Ftaringajs)
+
 #TaringaJS
 
 Taringa + nodejs
 
+
+Para instalar en su proyecto:
+```bash
+
+npm install taringajs --save
+
+```
 ##Ejemplos
 Todos los ejemplos tienen el siguiente encabezado
 ```javascript
