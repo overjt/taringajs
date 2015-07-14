@@ -31,6 +31,15 @@ taringa.shout.add("Test image", 1, 0, "http://k33.kn3.net/taringa/9/2/3/6/7/8//d
 ```javascript
 taringa.shout.add("Test video", 2, 0, "https://www.youtube.com/watch?v=l7Fi8-7HRhc");
 ```
+* Link
+```javascript
+taringa.shout.attach_link("http://coffeescript.org/", function(err, data) {
+  if (err) {
+    return console.log(err);
+  }
+  return taringa.shout.add("Test link", 3, 0, data);
+});
+```
 
 ###Comentar un shout
 ```javascript
