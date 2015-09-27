@@ -91,6 +91,31 @@ taringa.user.follow(19963011);
 taringa.user.unfollow(19963011);
 ```
 
+###Dar favorito a un shout
+```javascript
+taringa.shout.fav(60544255,19963011);
+```
+
+
+###Obtener el último MP
+```javascript
+taringa.message.getLast(function(err, data) {
+    if (err) {
+        return console.log(err);
+    }
+    console.log(data);
+});
+```
+
+###Obtener un MP por ID
+```javascript
+taringa.message.get(1324344, function(err, data) {
+    if (err) {
+        return console.log(err);
+    }
+    console.log(data);
+});
+```
 Todos los ejemplos están en el archivo `test/test.js`
 
 
