@@ -1,10 +1,8 @@
-var EventEmitter, S, Taringa, request,
+var EventEmitter, Taringa, request,
   extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
   hasProp = {}.hasOwnProperty;
 
 request = require('request');
-
-S = require('string');
 
 EventEmitter = require('events').EventEmitter;
 
@@ -17,6 +15,7 @@ Taringa = (function(superClass) {
       this.password = password;
       this.user_id = '';
       this.user_key = '';
+      this.realtime_data = null;
       this.request = request.defaults({
         headers: {
           'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; rv:31.0) Gecko/20100101 Firefox/31.0'
@@ -26,6 +25,8 @@ Taringa = (function(superClass) {
       this.register('shout');
       this.register('user');
       this.register('kn3');
+      this.register('message');
+      
       this.login();
     } else {
       throw new Error("Not enough parameters provided. I need a username, a password");
@@ -52,7 +53,6 @@ Taringa = (function(superClass) {
       if (!error && response.statusCode === 200) {
         data = JSON.parse(body);
         if (data.status === 0) {
-          self.log(S(data.data).decodeHTMLEntities().stripTags().s);
           throw new Error("Login failed: Request was not succesful");
         } else {
           return self.store_user_data();
@@ -80,7 +80,18 @@ Taringa = (function(superClass) {
         if ((match != null) && match.length === 3 && match[1] !== '' && match[2] !== '') {
           self.user_id = match[1];
           self.user_key = match[2];
-          return self.emit('logged');
+          pattern = /new Realtime\({\"host\":\"([.0-9]+)\",\"port\":(\d+)}(?:[^]+) notifications\('([a-z0-9]+)',/i;
+          match = pattern.exec(body);
+          if ((match != null) && match.length === 4) {
+            self.realtime_data = {
+              "ip": match[1],
+              "port": match[2],
+              "hash": match[3]
+            }
+            return self.emit('logged');
+          } else {
+            throw new Error("Login failed: Request was not succesful- Realtime");
+          }
         } else {
           throw new Error("Login failed: Request was not succesful- UserKey");
         }
