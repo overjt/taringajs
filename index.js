@@ -80,7 +80,7 @@ Taringa = (function(superClass) {
         if ((match != null) && match.length === 3 && match[1] !== '' && match[2] !== '') {
           self.user_id = match[1];
           self.user_key = match[2];
-          pattern = /new Realtime\({\"host\":\"([.0-9]+)\",\"port\":(\d+)}(?:[^]+) notifications\('([a-z0-9]+)',/i;
+          pattern = /new Realtime\({\"host\":\"(.*?)\",\"port\":(\d+),\"useSSL\":true}(?:[^]+) notifications\('([a-z0-9]+)',/i;
           match = pattern.exec(body);
           if ((match != null) && match.length === 4) {
             self.realtime_data = {
