@@ -26,6 +26,7 @@ Taringa = (function(superClass) {
       this.register('user');
       this.register('kn3');
       this.register('message');
+      this.register('post');
       
       this.login();
     } else {
