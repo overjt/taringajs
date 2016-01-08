@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/overjt/taringajs",
   "dependencies": {
+    "lodash": "^3.10.1",
     "request": "^2.40.0"
   }
 }
