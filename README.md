@@ -121,7 +121,7 @@ Todos los ejemplos están en el archivo `test/test.js`
 ###Crear un post
 
 
-```
+```javascript
 
 var title = 'Posteo algo y te lo muestro';
 var body = "[img]https://k60.kn3.net/taringa/9/5/0/0/6/4//xxx_555/BA9.jpg[/img]";
