@@ -51,6 +51,11 @@ taringa.shout.add_comment("Hola",60544255,19963011,"shout");
 taringa.shout.like(60544255,19963011);
 ```
 
+###Dar "Reshout" a un shout
+```javascript
+taringa.shout.reshout(60544255,19963011); // shout_id, shout_owner_id
+```
+
 ###Obtener los datos de un shout utilizando el id
 ```javascript
 taringa.shout.get_object(60544255, function(err, data) {
