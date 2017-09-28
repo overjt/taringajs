@@ -1,6 +1,6 @@
 [![npm version](https://badge.fury.io/js/taringajs.svg)](http://badge.fury.io/js/taringajs) [![GitHub version](https://badge.fury.io/gh/overjt%2Ftaringajs.svg)](http://badge.fury.io/gh/overjt%2Ftaringajs)
 
-#TaringaJS
+# TaringaJS
 
 Taringa + nodejs
 
@@ -11,14 +11,14 @@ Para instalar en su proyecto:
 npm install taringajs --save
 
 ```
-##Ejemplos
+## Ejemplos
 Todos los ejemplos tienen el siguiente encabezado
 ```javascript
 var t = require('taringajs');
 var taringa = new t('USERNAME', 'PASSWORD');
 ```
 
-###Hacer un Shout
+### Hacer un Shout
 * Texto
 ```javascript
 taringa.shout.add("Test - #NodeJS");
@@ -41,22 +41,22 @@ taringa.shout.attach_link("http://coffeescript.org/", function(err, data) {
 });
 ```
 
-###Comentar un shout
+### Comentar un shout
 ```javascript
 taringa.shout.add_comment("Hola",60544255,19963011,"shout");
 ```
 
-###Dar "Me gusta" a un shout
+### Dar "Me gusta" a un shout
 ```javascript
 taringa.shout.like(60544255,19963011);
 ```
 
-###Dar "Reshout" a un shout
+### Dar "Reshout" a un shout
 ```javascript
 taringa.shout.reshout(60544255,19963011); // shout_id, shout_owner_id
 ```
 
-###Obtener los datos de un shout utilizando el id
+### Obtener los datos de un shout utilizando el id
 ```javascript
 taringa.shout.get_object(60544255, function(err, data) {
     if (err) {
@@ -66,7 +66,7 @@ taringa.shout.get_object(60544255, function(err, data) {
 });
 ```
 
-###Importar una imagen a kn3
+### Importar una imagen a kn3
 ```javascript
 taringa.kn3.import("https://i.imgur.com/s8yBeZ8.png", function(err, data) {
     if (err) {
@@ -76,7 +76,7 @@ taringa.kn3.import("https://i.imgur.com/s8yBeZ8.png", function(err, data) {
 });
 ```
 
-###Obtener los datos de un usuario según el nick
+### Obtener los datos de un usuario según el nick
 ```javascript
 taringa.user.get_user_id_from_nick("overjt", function(err, data) {
     if (err) {
@@ -86,23 +86,23 @@ taringa.user.get_user_id_from_nick("overjt", function(err, data) {
 });
 ```
 
-###Seguir a un usuario
+### Seguir a un usuario
 ```javascript
 taringa.user.follow(19963011);
 ```
 
-###Dejar de seguir a un usuario
+### Dejar de seguir a un usuario
 ```javascript
 taringa.user.unfollow(19963011);
 ```
 
-###Dar favorito a un shout
+### Dar favorito a un shout
 ```javascript
 taringa.shout.fav(60544255,19963011);
 ```
 
 
-###Obtener el último MP
+### Obtener el último MP
 ```javascript
 taringa.message.getLast(function(err, data) {
     if (err) {
@@ -112,7 +112,7 @@ taringa.message.getLast(function(err, data) {
 });
 ```
 
-###Obtener un MP por ID
+### Obtener un MP por ID
 ```javascript
 taringa.message.get(1324344, function(err, data) {
     if (err) {
@@ -123,7 +123,7 @@ taringa.message.get(1324344, function(err, data) {
 ```
 Todos los ejemplos están en el archivo `test/test.js`
 
-###Crear un post
+### Crear un post
 
 
 ```javascript
@@ -142,7 +142,7 @@ taringa.post.create(title,body,category,tags,thumbnail);
 ```
 
 
-##TODO
+## TODO
 * Comentar el código
 * Añadir funcionalidades para los post
 
